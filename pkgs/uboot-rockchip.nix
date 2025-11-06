@@ -37,7 +37,7 @@ let
       defconfig = defconfig;
       filesToInstall = [ "u-boot-rockchip.bin" ];
 
-      extraPatches = [ ./ramdisk_addr_r.patch ] ++ extraPatches;
+      #extraPatches = [ ./ramdisk_addr_r.patch ] ++ extraPatches;
 
       BL31 = BL31;
       ROCKCHIP_TPL = ROCKCHIP_TPL;
@@ -71,13 +71,13 @@ let
     in
     buildPatchedUBoot {
       inherit defconfig;
-      extraPatches = [
-        (fetchpatch {
-          name = "quartz64.patch";
-          url = "https://github.com/Kwiboo/u-boot-rockchip/compare/25049ad560826f7dc1c4740883b0016014a59789...830cfcfdf54a1f08a3ca7fc17e69b4bc18cece50.diff";
-          sha256 = "5mLjKiRpfnLCNVnyNuxBcDmmXg8xwcki3mmLisS4YbU=";
-        })
-      ];
+      #extraPatches = [
+      #  (fetchpatch {
+      #    name = "quartz64.patch";
+      #    url = "https://github.com/Kwiboo/u-boot-rockchip/compare/25049ad560826f7dc1c4740883b0016014a59789...830cfcfdf54a1f08a3ca7fc17e69b4bc18cece50.diff";
+      #    sha256 = "5mLjKiRpfnLCNVnyNuxBcDmmXg8xwcki3mmLisS4YbU=";
+      #  })
+      #];
       BL31 = (rkbin + "/bin/rk35/rk3568_bl31_v1.43.elf");
       ROCKCHIP_TPL = (rkbin + "/bin/rk35/rk3566_ddr_1056MHz_v1.18.bin");
     };
@@ -107,21 +107,21 @@ let
     };
 in
 {
-  uBootQuartz64A = buildRK3566UBoot "quartz64-a-rk3566_defconfig";
-  uBootQuartz64B = buildRK3566UBoot "quartz64-b-rk3566_defconfig";
-  uBootSoQuartzBlade = buildRK3566UBoot "soquartz-blade-rk3566_defconfig";
-  uBootSoQuartzCM4IO = buildRK3566UBoot "soquartz-cm4-rk3566_defconfig";
-  uBootSoQuartzModelA = buildRK3566UBoot "soquartz-model-a-rk3566_defconfig";
-  uBootPineTab2 = buildRK3566UBoot "pinetab2-rk3566_defconfig";
-  uBootPinebookPro = buildRK3399UBoot "pinebook-pro-rk3399_defconfig";
-  uBootRockPro64 = buildRK3399UBoot "rockpro64-rk3399_defconfig";
-  uBootROCPCRK3399 = buildRK3399UBoot "roc-pc-rk3399_defconfig";
-  uBootRock64 = buildRK3328UBoot "rock64-rk3328_defconfig";
-  uBootOrangePiCM4 = buildRK3566UBoot "orangepi-3b-rk3566_defconfig";
-  uBootOrangePi5B = buildRK3588UBoot "orangepi-5b-rk3588s_defconfig";
-  uBootRadxaCM3IO = buildRK3566UBoot "radxa-cm3-io-rk3566_defconfig";
-  uBootRadxaRock4 = buildRK3399UBoot "rock-pi-4-rk3399_defconfig";
-  uBootRadxaRock4SE = buildRK3399UBoot "rock-4se-rk3399_defconfig";
-  uBootRadxaRock3C = buildRK3566UBoot "rock-3c-rk3566_defconfig";
+  #uBootQuartz64A = buildRK3566UBoot "quartz64-a-rk3566_defconfig";
+  #uBootQuartz64B = buildRK3566UBoot "quartz64-b-rk3566_defconfig";
+  #uBootSoQuartzBlade = buildRK3566UBoot "soquartz-blade-rk3566_defconfig";
+  #uBootSoQuartzCM4IO = buildRK3566UBoot "soquartz-cm4-rk3566_defconfig";
+  #uBootSoQuartzModelA = buildRK3566UBoot "soquartz-model-a-rk3566_defconfig";
+  #uBootPineTab2 = buildRK3566UBoot "pinetab2-rk3566_defconfig";
+  #uBootPinebookPro = buildRK3399UBoot "pinebook-pro-rk3399_defconfig";
+  #uBootRockPro64 = buildRK3399UBoot "rockpro64-rk3399_defconfig";
+  #uBootROCPCRK3399 = buildRK3399UBoot "roc-pc-rk3399_defconfig";
+  #uBootRock64 = buildRK3328UBoot "rock64-rk3328_defconfig";
+  #uBootOrangePiCM4 = buildRK3566UBoot "orangepi-3b-rk3566_defconfig";
+  #uBootOrangePi5B = buildRK3588UBoot "orangepi-5b-rk3588s_defconfig";
+  #uBootRadxaCM3IO = buildRK3566UBoot "radxa-cm3-io-rk3566_defconfig";
+  #uBootRadxaRock4 = buildRK3399UBoot "rock-pi-4-rk3399_defconfig";
+  #uBootRadxaRock4SE = buildRK3399UBoot "rock-4se-rk3399_defconfig";
+  #uBootRadxaRock3C = buildRK3566UBoot "rock-3c-rk3566_defconfig";
   uBootRadxaZero3 = buildRK3566UBoot "radxa-zero-3-rk3566_defconfig";
 }
