@@ -26,10 +26,10 @@ let
       src = fetchFromGitHub {
         owner = "u-boot";
         repo = "u-boot";
-        rev = "v2024.04";
-        sha256 = "IlaDdjKq/Pq2orzcU959h93WXRZfvKBGDO/MFw9mZMg=";
+        rev = "v2025.10";
+        sha256 = "sha256-9y21xYwJ/ATFikCRuhalKjAhpRHmOZv6a7GDkLhbon4=";
       };
-      version = "v2024.04-0-g25049ad5608"; # git describe --long
+      version = "v2025.10-0-ge50b1e87150"; # git describe --long
     in
     buildUBoot {
       src = src;
@@ -123,5 +123,5 @@ in
   uBootRadxaRock4 = buildRK3399UBoot "rock-pi-4-rk3399_defconfig";
   uBootRadxaRock4SE = buildRK3399UBoot "rock-4se-rk3399_defconfig";
   uBootRadxaRock3C = buildRK3566UBoot "rock-3c-rk3566_defconfig";
-  uBootRadxaZero3 = buildRK3566UBoot "rock-zero-3-rk3566_defconfig";
+  uBootRadxaZero3 = buildRK3566UBoot "radxa-zero-3-rk3566_defconfig";
 }
